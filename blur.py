@@ -51,7 +51,7 @@ def is_peace(landmarks, handedness_label="Right"):
     )
 
 
-def get_blur_kernel(frame_width, base_ratio=20, min_size=15):
+def get_blur_kernel(frame_width, base_ratio=10, min_size=31):
     """Hitung ukuran kernel blur yang proporsional dengan lebar frame (harus ganjil)."""
     k = max(min_size, frame_width // base_ratio)
     if k % 2 == 0:
@@ -99,7 +99,7 @@ def main():
                 frame = cv2.GaussianBlur(frame, kernel, 0)
                 cv2.putText(
                     frame,
-                    "Peace Detected!",
+                    "Blur!",
                     (20, 40),
                     cv2.FONT_HERSHEY_SIMPLEX,
                     1,
